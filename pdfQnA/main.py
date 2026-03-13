@@ -1,20 +1,10 @@
-import pymupdf
-doc =  pymupdf.open("data/basic-text.pdf")
-text = ""
-for page in doc:
-    text += page.get_text()
-# print(text)
-words = text.split()
-start = 0
-overlap = 30
-chunk_size = 50
-ans = []
-i = 0
-while(start < len(words)):
+from extractorF.extractor import extract_text
+from chunking.makeChunks import make_Chunks
+def main():
+    pdf_path = "./data/basic-text.pdf"
+    text = extract_text(pdf_path)
+    chunks = make_Chunks(text)
+    print(chunks)
 
-    chunk = words[start : start + chunk_size]
-    chunk_text = " ".join(chunk)
-    ans.append(chunk_text)
-    i = i + 1
-    start += chunk_size - overlap
-print(ans)
+if __name__ == "__main__":
+    main()
