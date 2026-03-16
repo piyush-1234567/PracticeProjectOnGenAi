@@ -6,6 +6,6 @@ def main():
     text = extract_text(pdf_path)
     chunks = make_Chunks(text)
     ans = embedding(chunks)
-    print(ans)
+    return ans
 if __name__ == "__main__":
     main()
