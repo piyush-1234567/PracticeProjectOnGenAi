@@ -1,16 +1,16 @@
-def make_Chunks(text):
+import re
 
-    words = text.split()
-    start = 0
-    overlap = 30
-    chunk_size = 50
-    ans = []
-    i = 0
-    while(start < len(words)):
+def make_Chunks(text,chunk_size=10,overlap=7):
+    sentences = re.split(r'(?<=[.!?]) +',text)
+    chunks = []
+    current_chunk = ""
+    for sentence in sentences:
+        if(len(current_chunk) + len(sentence) > chunk_size):
+            if(current_chunk.strip()):
+                chunks.append(current_chunk.strip())
+            current_chunk = current_chunk[-overlap:]
+        current_chunk += " "+sentence
+    if(current_chunk):
+        chunks.append(current_chunk.strip())
+    return chunks
 
-        chunk = words[start : start + chunk_size]
-        chunk_text = " ".join(chunk)
-        ans.append(chunk_text)
-        i = i + 1
-        start += chunk_size - overlap
-    return ans
