@@ -3,6 +3,10 @@ import chromadb
 
 def vectorDbStorage(x):
     client = chromadb.PersistentClient(path="./chromadb")
+    try:
+        client.delete_collection(name="pdf_chunks")
+    except:
+        pass
     collection = client.get_or_create_collection(name="pdf_chunks")
     ids = []
     embeddings = []
