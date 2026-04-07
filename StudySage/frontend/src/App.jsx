@@ -1,12 +1,15 @@
 import './App.css'
-
+import {useState} from 'react';
 function App() {
+  const [file,setFile]  = useState(null);
   const handleFile = (e) => {
-    console.log(e.target.files[0]);
+    const selected = e.target.files[0];
+    setFile(selected);
+    console.log("Submitted ",selected);
   };
 
   const handleSubmit = () => {
-    console.log("Submitted");
+    console.log("Submitted ",file);
   };
 
   return (
