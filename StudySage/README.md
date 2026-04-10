@@ -26,3 +26,7 @@ Relevant chunks are retrieved
 LLM generates the final answer
 
 📦 Installation
+1. Clone the repository
+git clone https://github.com/your-username/pdf-qna.git
+cd pdf-qna
+
