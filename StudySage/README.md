@@ -27,6 +27,6 @@ LLM generates the final answer
 
 📦 Installation
 1. Clone the repository
-git clone https://github.com/your-username/pdf-qna.git
+git clone https://github.com/piyush-1234567/PracticeProjectOnGenAi.git
 cd pdf-qna
 
