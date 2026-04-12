@@ -1,4 +1,5 @@
 from fastapi import FastAPI , UploadFile , File
+from fastapi.middleware.cors import CORSMiddleware
 import os
 from PdfextractorF.extractor import extract_text
 from chunking.makeChunks import make_Chunks
@@ -8,6 +9,13 @@ from prompt.prompt import promptBuilder
 from response.responses import ask_llm
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # your React app
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 vector_store = None
 def process_pdf(pdf_path):
     text = extract_text(pdf_path)
