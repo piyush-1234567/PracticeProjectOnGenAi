@@ -29,4 +29,11 @@ LLM generates the final answer
 1. Clone the repository
 git clone https://github.com/piyush-1234567/PracticeProjectOnGenAi.git
 cd pdf-qna
+uvicorn main:app --reload
 
+🔮 Future Improvements
+🔐 User authentication
+🌐 Multi-language support
+📊 Highlight answers in PDF
+📚 Multi-document comparison
+🧠 Better context understanding
