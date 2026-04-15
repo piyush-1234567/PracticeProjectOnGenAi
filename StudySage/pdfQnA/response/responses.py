@@ -1,7 +1,9 @@
 import os
 from huggingface_hub import InferenceClient
 
-client = InferenceClient()
+client = InferenceClient(
+    api_key=os.getenv("hf_token")
+)
 
 def ask_llm(prompt):
     completion = client.chat.completions.create(

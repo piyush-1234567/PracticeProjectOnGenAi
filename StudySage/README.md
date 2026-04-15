@@ -29,6 +29,7 @@ LLM generates the final answer
 1. Clone the repository
 git clone https://github.com/piyush-1234567/PracticeProjectOnGenAi.git
 cd pdf-qna
+export hf_token="your api key"
 uvicorn main:app --reload
 
 🔮 Future Improvements

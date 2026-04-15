@@ -3,6 +3,7 @@ import {useState} from 'react';
 function App() {
   const [file,setFile]  = useState(null);
   const [query,setQuery] = useState("");
+  const [answer, setAnswer] = useState("");
   const handleFile = (e) => {
     const selected = e.target.files[0];
     setFile(selected);
@@ -31,6 +32,30 @@ function App() {
       alert("Upload failed");
     }
   };
+  const handleAsk = async () => {
+    if (!query) {
+      alert("Enter a question");
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:8000/ask?query=${encodeURIComponent(query)}`
+      );
+
+      const data = await response.json();
+      console.log(data);
+
+      if (data.answer) {
+        setAnswer(data.answer);
+      } else {
+        setAnswer("No answer received");
+      }
+    } catch (error) {
+      console.error("Ask error:", error);
+      setAnswer("Error fetching answer");
+    }
+  };
 
   return (
     <div className="container">
@@ -54,6 +79,13 @@ function App() {
       <button onClick={handleSubmit} className="btn">
         Submit
       </button>
+      <button onClick={handleAsk} className="btn">
+        Ask Question
+      </button>
+      <div className="answerBox">
+        <h3>Answer:</h3>
+        <p>{answer}</p>
+      </div>
     </div>
   );
 }
