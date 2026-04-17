@@ -31,9 +31,16 @@ git clone https://github.com/piyush-1234567/PracticeProjectOnGenAi.git
 cd pdf-qna
 export hf_token="your api key"
 uvicorn main:app --reload
+
 cd ..
 cd frontend
 npm run dev
+
+
+
+📸 Demo
+Upload a PDF → Ask questions → Get answers instantly 🚀
+
 🔮 Future Improvements
 🔐 User authentication
 🌐 Multi-language support
