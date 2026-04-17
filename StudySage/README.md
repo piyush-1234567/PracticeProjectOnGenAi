@@ -47,3 +47,13 @@ Upload a PDF → Ask questions → Get answers instantly 🚀
 📊 Highlight answers in PDF
 📚 Multi-document comparison
 🧠 Better context understanding
+🧪 Example Queries
+"Summarize this document"
+"What are the key points?"
+"Explain section 3"
+"Who is the author?"
+
+📁 Project Structure
+pdf-qna/
+│── frontend/
+│── backend/
