@@ -57,3 +57,12 @@ Upload a PDF → Ask questions → Get answers instantly 🚀
 pdf-qna/
 │── frontend/
 │── backend/
+🔮 Future Improvements
+🔐 User authentication
+🌐 Multi-language support
+📊 Highlight answers in PDF
+📚 Multi-document comparison
+🧠 Better context understanding
+
+🤝 Contributing
+Contributions are welcome! Feel free to open issues or submit pull requests.
