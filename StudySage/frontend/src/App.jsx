@@ -59,6 +59,7 @@ function App() {
 
   return (
     <div className="container">
+    <h1>Study Sage</h1>
       <h2>Upload Your File</h2>
 
       <input 
