@@ -1,37 +1,42 @@
 import './App.css'
-import {useState} from 'react';
+import { useState } from 'react';
+
 function App() {
-  const [file,setFile]  = useState(null);
-  const [query,setQuery] = useState("");
+  const [file, setFile] = useState(null);
+  const [query, setQuery] = useState("");
   const [answer, setAnswer] = useState("");
+
   const handleFile = (e) => {
     const selected = e.target.files[0];
     setFile(selected);
-    console.log("Submitted ",selected);
+    console.log("Submitted ", selected);
   };
 
   const handleSubmit = async () => {
-    if(!file){
+    if (!file) {
       alert("Please select a file first");
       return;
     }
 
     const formData = new FormData();
-    formData.append("file",file);
-    try{
-      const response = await fetch("http://127.0.0.1:8000/upload",{
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/upload", {
         method: "POST",
         body: formData,
       });
+
       const data = await response.json();
-      console.log("Response: ",data);
+      console.log("Response: ", data);
 
       alert("File uploaded successfully");
-    }catch(error){
-      console.error("Error uploading file: ",error);
+    } catch (error) {
+      console.error("Error uploading file: ", error);
       alert("Upload failed");
     }
   };
+
   const handleAsk = async () => {
     if (!query) {
       alert("Enter a question");
@@ -59,33 +64,40 @@ function App() {
 
   return (
     <div className="container">
-    <h1>Study Sage</h1>
-      <h2>Upload Your File</h2>
+      <div className="card">
+        <h1 className="title">📚 Study Sage</h1>
+        <p className="subtitle">Upload your file and ask questions instantly</p>
 
-      <input 
-        type="text" 
-        placeholder="Type your queries..." 
-        className="input"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <p>{query}</p>
+        <div className="section">
+          <h2>Ask a Question</h2>
+          <input
+            type="text"
+            placeholder="Type your question..."
+            className="input"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <button onClick={handleAsk} className="btn primary">
+            Ask Question
+          </button>
+        </div>
 
-      <input 
-        type="file" 
-        onChange={handleFile} 
-        className="fileInput"
-      />
+        <div className="section">
+          <h2>Upload File</h2>
+          <input
+            type="file"
+            onChange={handleFile}
+            className="fileInput"
+          />
+          <button onClick={handleSubmit} className="btn secondary">
+            Upload File
+          </button>
+        </div>
 
-      <button onClick={handleSubmit} className="btn">
-        Submit
-      </button>
-      <button onClick={handleAsk} className="btn">
-        Ask Question
-      </button>
-      <div className="answerBox">
-        <h3>Answer:</h3>
-        <p>{answer}</p>
+        <div className="answerBox">
+          <h3>Answer</h3>
+          <p>{answer || "Your answer will appear here..."}</p>
+        </div>
       </div>
     </div>
   );
