@@ -67,6 +67,13 @@ pdf-qna/
 🤝 Contributing
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
+
 this project i learn
 libraries to install for running this project 
 fastapi , cors , uvicorn , huggingface_hub
+
+🙌 Acknowledgements
+OpenAI / HuggingFace
+LangChain
+FAISS / Vector DB tools
+
