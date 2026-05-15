@@ -69,7 +69,7 @@ cd pdf-qna
 Install dependencies:
 
 ```bash
-pip install fastapi uvicorn python-multipart huggingface_hub
+pip install fastapi uvicorn python-multipart huggingface_hub pymupdf
 ```
 
 Set your API key:
