@@ -69,7 +69,8 @@ cd pdf-qna
 Install dependencies:
 
 ```bash
-pip install fastapi uvicorn python-multipart huggingface_hub pymupdf
+pip install fastapi uvicorn python-multipart huggingface_hub pymupdf sentence-transformers
+
 ```
 
 Set your API key:
