@@ -94,7 +94,11 @@ cd frontend
 npm install
 npm run dev
 ```
-
+### 4. Backend Setup
+```bash
+source pymupdf-venv/bin/activate
+export HF_TOKEN="api_key"
+uvicorn main:app --reload
 ---
 
 ## 📸 Demo
