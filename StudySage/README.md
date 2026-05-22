@@ -99,6 +99,7 @@ npm run dev
 source pymupdf-venv/bin/activate
 export HF_TOKEN="api_key"
 uvicorn main:app --reload
+```
 ---
 
 ## 📸 Demo
