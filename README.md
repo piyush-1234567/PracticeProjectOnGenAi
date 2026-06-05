@@ -15,4 +15,4 @@ Simply upload a PDF and ask any questions about its content — StudySage will a
 
 ---
 *More projects coming soon...*
-print(hello)
+
